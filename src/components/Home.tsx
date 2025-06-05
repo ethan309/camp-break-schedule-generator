@@ -147,6 +147,7 @@ const Home = () => {
             >
                 Generate Schedule
             </Button>
+            <Text fontSize="sm">v1.0.0</Text>
         </Stack>
     );
 };
