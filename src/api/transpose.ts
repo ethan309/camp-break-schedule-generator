@@ -7,7 +7,7 @@ export function transpose(arrayOfArrays: string[][]) {
             r2[j] = r2[j] ?? new Array(length).fill(null);
             r2[j][i] = v;
         });
-        console.log({ r, r2 });
+
         return r2;
     }, []);
 

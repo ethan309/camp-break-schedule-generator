@@ -5,37 +5,6 @@ import { useCallback, useEffect, useMemo } from "react";
 import { createSchedule } from "../api/create-schedule";
 import { useNavigate } from "react-router-dom";
 
-/*
-pprint(
-    breakShiftAssignments
-        .map((g, index) =>
-            chalk.blueBright(
-                `Shift ${index + 1}: ${g.filter((p) => p).join(" | ")}`
-            )
-        )
-        .join("\n")
-);
-
-console.log(
-    chalk.blue("Unassiged: "),
-    chalk.blue(
-        evenRows
-            .filter((r) => r.length > 0)
-            .map((a) => a.filter((y) => y).join(" | "))
-            .join(" | ")
-    ),
-    chalk.blue(
-        oddRows
-            .filter((r) => r.length > 0)
-            .map((b) => b.filter((y) => y).join(" | "))
-            .join(" | ")
-    ),
-    "\n",
-    "Click the 'Continue' button to be done.",
-    "\n"
-);
-*/
-
 const totalShifts = 8;
 
 const Schedule = () => {
@@ -54,8 +23,6 @@ const Schedule = () => {
         () => createSchedule(groups, totalShifts),
         [groups]
     );
-
-    console.log({ scheduleShifts, unassigned });
 
     const navigate = useNavigate();
     const onReset = useCallback(() => {

@@ -13,14 +13,10 @@ export function createSchedule(
         .slice(halfway)
         .map((g, index) => prepareGroup(g, index));
 
-    console.log({ halfway, aGroups, bGroups });
-
     const breakShiftAssignments: string[][] = [];
 
     const evenRows = transpose(aGroups);
     const oddRows = transpose(bGroups);
-
-    console.log({ oddRows, evenRows });
 
     let shift = 0;
     while (shift < shiftCount && (evenRows.length > 0 || oddRows.length > 0)) {
