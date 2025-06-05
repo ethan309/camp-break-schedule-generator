@@ -2230,11 +2230,6 @@
   resolved "https://registry.yarnpkg.com/@eslint/js/-/js-8.57.0.tgz#a5417ae8427873f1dd08b70b3574b453e67b5f7f"
   integrity sha512-Ys+3g2TaW7gADOJzPt83SJtCDhMjndcDMFVQ/Tj9iA1BfJzFKD9mAUXT3OenpuPHbI6P/myECxRJrofUsDx/5g==
 
-"@ethan309/utils@^1.0.0":
-  version "1.0.0"
-  resolved "https://registry.yarnpkg.com/@ethan309/utils/-/utils-1.0.0.tgz#a157ae739ba0f92f064e7df8341f365a8671d63d"
-  integrity sha512-ayNvDqjbkZPvXkw+Qk/jaWoCtwam1O4wF54vM/nWdFN0ebtnmjl7PBMX+XyC1VrInfEw9VAZhFG6vg6XZCWouQ==
-
 "@humanwhocodes/config-array@^0.11.14":
   version "0.11.14"
   resolved "https://registry.yarnpkg.com/@humanwhocodes/config-array/-/config-array-0.11.14.tgz#d78e481a039f7566ecc9660b4ea7fe6b1fec442b"
