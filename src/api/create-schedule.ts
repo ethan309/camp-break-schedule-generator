@@ -23,12 +23,12 @@ export function createSchedule(
         if (shift % 2 === 0) {
             const nextA = evenRows.shift();
             if (nextA && nextA.length > 0) {
-                breakShiftAssignments.push(nextA);
+                breakShiftAssignments.push(nextA.filter((a) => !!a));
             }
         } else {
             const nextB = oddRows.shift();
             if (nextB && nextB.length > 0) {
-                breakShiftAssignments.push(nextB);
+                breakShiftAssignments.push(nextB.filter((b) => !!b));
             }
         }
         shift++;
