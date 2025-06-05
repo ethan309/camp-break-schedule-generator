@@ -16,7 +16,8 @@ const container = document.getElementById("root");
 if (!container) throw new Error("Failed to find the root element");
 const root = ReactDOM.createRoot(container);
 
-const { Button, Container, Heading, Input } = chakraTheme.components;
+const { Button, Container, Heading, Input, Tag, Tooltip } =
+    chakraTheme.components;
 
 const theme = extendBaseTheme({
     components: {
@@ -24,6 +25,8 @@ const theme = extendBaseTheme({
         Container,
         Heading,
         Input,
+        Tag,
+        Tooltip,
     },
 });
 
