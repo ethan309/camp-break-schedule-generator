@@ -9,7 +9,7 @@ import {
     Text,
     Tooltip,
 } from "@chakra-ui/react";
-import React, { useCallback, useMemo, useState } from "react";
+import React, { useCallback, useMemo, useRef, useState } from "react";
 import { useRecoilState } from "recoil";
 import { Groups } from "../state/groups";
 import GroupRow from "./GroupRow";
@@ -36,15 +36,6 @@ const Home = () => {
         });
         setInputLine("");
     }, [inputLine, setGroups]);
-
-    const onKeydown: React.KeyboardEventHandler<HTMLInputElement> = useCallback(
-        (target) => {
-            if (inputLine.trim().length > 0 && target.code === "Enter") {
-                onAddName();
-            }
-        },
-        [inputLine, onAddName]
-    );
 
     const onAddGroup = useCallback(() => {
         setGroups((gs) => [...gs, []]);
@@ -74,6 +65,26 @@ const Home = () => {
         [navigate]
     );
 
+    const inputRef = useRef<HTMLInputElement>(null);
+
+    const onKeydown: React.KeyboardEventHandler<HTMLInputElement> = useCallback(
+        (target) => {
+            if (target.code === "Enter" && !isNameConflicting) {
+                if (
+                    target.shiftKey &&
+                    inputLine.trim().length === 0 &&
+                    !isGroupEmpty
+                ) {
+                    onAddGroup();
+                    inputRef.current?.focus();
+                } else if (inputLine.trim().length > 0) {
+                    onAddName();
+                }
+            }
+        },
+        [inputLine, isNameConflicting, isGroupEmpty, onAddName, onAddGroup]
+    );
+
     return (
         <Stack>
             <HStack justifyContent="space-between" alignItems="start">
@@ -89,6 +100,7 @@ const Home = () => {
                         value={inputLine}
                         onChange={onChange}
                         onKeyDown={onKeydown}
+                        ref={inputRef}
                     />
                     <InputRightElement width="auto">
                         <Tooltip fontSize="x-small" label="or press Enter">
@@ -107,17 +119,19 @@ const Home = () => {
                         </Tooltip>
                     </InputRightElement>
                 </InputGroup>
-                <Button
-                    variant="outline"
-                    isDisabled={
-                        inputLine.trim().length > 0 ||
-                        isNameConflicting ||
-                        isGroupEmpty
-                    }
-                    onClick={onAddGroup}
-                >
-                    New Group
-                </Button>
+                <Tooltip fontSize="x-small" label="or press Shift + Enter">
+                    <Button
+                        variant="outline"
+                        isDisabled={
+                            inputLine.trim().length > 0 ||
+                            isNameConflicting ||
+                            isGroupEmpty
+                        }
+                        onClick={onAddGroup}
+                    >
+                        New Group
+                    </Button>
+                </Tooltip>
             </HStack>
             <Stack>
                 {groups.map((_, index) => (

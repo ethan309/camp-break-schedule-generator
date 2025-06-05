@@ -1,4 +1,4 @@
-import { Button, Heading, Stack, Text } from "@chakra-ui/react";
+import { Button, Heading, Link, Stack, Text } from "@chakra-ui/react";
 import { useRecoilValue, useResetRecoilState } from "recoil";
 import { Groups } from "../state/groups";
 import { useCallback, useEffect, useMemo } from "react";
@@ -63,6 +63,13 @@ const Schedule = () => {
             <Button mt="auto" mx={1} mb={2} onClick={onReset}>
                 Reset
             </Button>
+            <Link
+                fontSize="sm"
+                href="https://master.d2fa7ppq7csc40.amplifyapp.com"
+            >
+                Want more Camp Vertical? Check out the "which activity group are
+                you?" quiz.
+            </Link>
         </Stack>
     );
 };
