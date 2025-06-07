@@ -5,6 +5,7 @@ import {
     Input,
     InputGroup,
     InputRightElement,
+    Link,
     Stack,
     Text,
     Tooltip,
@@ -147,7 +148,14 @@ const Home = () => {
             >
                 Generate Schedule
             </Button>
-            <Text fontSize="sm">v1.0.0</Text>
+            <Link
+                fontSize="sm"
+                href="https://github.com/ethan309/camp-break-schedule-generator"
+                textDecor="underline"
+                color="teal"
+            >
+                v1.0.0
+            </Link>
         </Stack>
     );
 };
