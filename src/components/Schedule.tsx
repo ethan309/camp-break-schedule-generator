@@ -66,6 +66,8 @@ const Schedule = () => {
             <Link
                 fontSize="sm"
                 href="https://master.d2fa7ppq7csc40.amplifyapp.com"
+                textDecor="underline"
+                color="teal"
             >
                 Want more Camp Vertical? Check out the "which activity group are
                 you?" quiz.
